@@ -1,3 +1,6 @@
+import {user} from './services/user.js'
+import {repos} from './services/repositories.js'
+
 document.getElementById('btn-search').addEventListener('click', () => {
     let userName = document.getElementById('input-search').value
     getUserProfile(userName)
@@ -10,17 +13,6 @@ document.getElementById('input-search').addEventListener('keyup', (e) => {
 
     if (isEnterKeyPressed) getUserProfile(userName)
 })
-
-async function repos(userName) {
-    const response = await fetch(`https://api.github.com/users/${userName}/repos`)
-    return response.json()
-}
-
-
-async function user(userName) {
-    const response = await fetch(`https://api.github.com/users/${userName}`)
-    return await response.json()
-}
 
 function getUserProfile(userName) {
     user(userName).then(userData => {

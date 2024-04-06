@@ -1,2 +1,2 @@
 # projeto-inicial-fetch-github-api
-Repositório contendo os arquivos iniciais do projeto de Fetch e GitHub API
+Projeto de estudo de javascript com consumo de api, usando a API do github como base

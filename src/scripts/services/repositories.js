@@ -1,6 +1,6 @@
-async function repos(userName) {
+async function getRepositories(userName) {
     const response = await fetch(`https://api.github.com/users/${userName}/repos`)
     return response.json()
 }
 
-export {repos}
+export {getRepositories}

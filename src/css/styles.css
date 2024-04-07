@@ -148,6 +148,13 @@ main {
   color: #fff
 }
 
+.container .profile-data .repositories span{
+  background-color: purple;
+  border-radius: 4px;
+  padding: 5px;
+  color: white;
+}
+
 #event-repo{
   font-weight: 700;
   margin-right: 10px;

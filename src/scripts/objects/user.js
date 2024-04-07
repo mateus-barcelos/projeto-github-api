@@ -6,6 +6,7 @@ const user = {
     followers:'',
     following:'',
     repositories: [],
+    lastEvents: [],
 
     setInfo(gitHubUser) {
         this.avatarUrl = gitHubUser.avatar_url
@@ -18,6 +19,10 @@ const user = {
 
     setRepositories(repositories) {
         this.repositories = repositories
+    },
+
+    setLastEvents(events){
+        this.lastEvents = events
     }
 }
 

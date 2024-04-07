@@ -17,8 +17,20 @@ const screen = {
         if (user.repositories.length > 0) {
             this.userProfile.innerHTML += `<h2>Repositórios</h2>
                                                 <div class="repositories section">
-                                                     <ul>${repositoriesItens}</ul
+                                                     <ul>${repositoriesItens}</ul>
                                                 </div>`
+        }
+
+        let eventsItens = ''
+        user.lastEvents.forEach(event => {
+           if(event.payload.commits && event.payload.commits.length > 0){
+            eventsItens += `<li><span id="event-repo">${event.repo.name}</span> -${event.payload.commits[0].message}</li>`
+           }
+        })
+
+        if (user.lastEvents.length > 0 ){
+            this.userProfile.innerHTML += `<h2>Eventos</h2><br>
+                                            <ul>${eventsItens}</ul>`
         }
     },
     renderNotFound(){

@@ -1,5 +1,6 @@
 import { getUser } from './services/user.js'
 import { getRepositories } from './services/repositories.js'
+import { getEvents } from './services/events.js'
 
 import { user } from './objects/user.js'
 import { screen } from './objects/screen.js'
@@ -16,14 +17,16 @@ document.getElementById('input-search').addEventListener('keyup', (e) => {
     const key = e.which || e.keyCode
     const isEnterKeyPressed = key === 13
 
-    if (validateEmptyInput(userName)) return
-
-    if (isEnterKeyPressed) getUserData(userName)
+    if (isEnterKeyPressed) {
+        if (validateEmptyInput(userName)) return
+        getUserData(userName)
+    }
 })
 
 async function getUserData(userName) {
     const userResponse = await getUser(userName)
     const repositoriesResponse = await getRepositories(userName)
+    const eventsResponse = await getEvents(userName)
 
     if(userResponse.message === "Not Found"){
         screen.renderNotFound()
@@ -32,8 +35,8 @@ async function getUserData(userName) {
 
     user.setInfo(userResponse)
     user.setRepositories(repositoriesResponse)
+    user.setLastEvents(eventsResponse)
     screen.renderUser(user)
-
 }
 
 function validateEmptyInput(userName) {

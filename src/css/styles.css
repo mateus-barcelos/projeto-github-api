@@ -148,6 +148,10 @@ main {
   color: #fff
 }
 
+#event-repo{
+  font-weight: 700;
+  margin-right: 10px;
+}
 .container .profile-data.hide{
   display: none;
 }
